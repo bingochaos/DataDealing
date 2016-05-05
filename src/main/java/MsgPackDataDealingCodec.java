@@ -72,7 +72,7 @@ public class MsgPackDataDealingCodec extends ByteToMessageCodec {
             return;
 
         in.skipBytes(4);
-        byte[] content = new byte[in.readableBytes()];
+        byte[] content = new byte[contentLength];
         in.readBytes(content);
         messageUnpacker = MessagePack.newDefaultUnpacker(content);
         String fileName = messageUnpacker.unpackString();
